@@ -1,0 +1,16 @@
+addons:
+  apt:
+    padkages:
+      - docker-ce
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker --version
+  - make
+
+script:
+  - make test
