@@ -4,19 +4,22 @@ use Test::More;
 
 use_ok 'Hoge::Fuga::Message';
 
-subtest Person => sub {
+subtest Users => sub {
 
-    subtest 'encode/decode' => sub {
-        my $p1 = Hoge::Fuga::Message::Person->new;
-        $p1->set_id(123);
-        $p1->set_name('hoge fuga');
-        $p1->set_email('hoge@foo.bar');
-        my $bytes = Hoge::Fuga::Message::Person->encode($p1);
-        my $p2 = Hoge::Fuga::Message::Person->decode($bytes);
+    subtest User => sub {
 
-        is $p2->get_id, 123;
-        is $p2->get_name, 'hoge fuga';
-        is $p2->get_email, 'hoge@foo.bar';
+        subtest 'encode/decode' => sub {
+            my $p1 = Hoge::Fuga::Message::Users::User->new;
+            $p1->set_id(123);
+            $p1->set_name('hoge fuga');
+            $p1->set_email('hoge@foo.bar');
+            my $bytes = Hoge::Fuga::Message::Users::User->encode($p1);
+            my $p2 = Hoge::Fuga::Message::Users::User->decode($bytes);
+
+            is $p2->get_id, 123;
+            is $p2->get_name, 'hoge fuga';
+            is $p2->get_email, 'hoge@foo.bar';
+        };
     };
 };
 

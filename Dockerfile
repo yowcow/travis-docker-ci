@@ -7,6 +7,6 @@ RUN set -eux; \
         libprotobuf-dev libprotoc-dev libgrpc-dev protobuf-compiler
 
 RUN set -eux; \
-    cpanm App::cpm Carton Devel::CheckLib IO::Socket::SSL
+    cpanm --notest App::cpm Carton Devel::CheckLib IO::Socket::SSL
 
 RUN rm -rf /var/lib/apt/lists/* /root/.cpanm
