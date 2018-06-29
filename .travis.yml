@@ -14,3 +14,6 @@ before_install:
 
 script:
   - make test
+
+after_success:
+  - set -eux; echo $TRAVIS_BRANCH
