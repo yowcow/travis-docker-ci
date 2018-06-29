@@ -17,4 +17,4 @@ script:
 
 after_success:
   - echo "This branch is ${TRAVIS_BRANCH}"
-  - set -x; if [ "$TRAVIS_BRANCH" = "master" ]; then echo "This"; echo "is"; echo "master"; echo "branch"; else echo "This is NOT master branch"; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then echo "This"; echo "is"; echo "master"; echo "branch"; else echo "This is NOT master branch"; fi
