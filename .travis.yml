@@ -16,4 +16,5 @@ script:
   - make test
 
 after_success:
-  - set -eux; echo $TRAVIS_BRANCH
+  - set -eux; echo "This branch is ${TRAVIS_BRANCH}"
+  - set -eux; [ "$TRAVIS_BRANCH" = "master" ] && echo "== This is master" || echo "-- This is NOT master"
