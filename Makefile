@@ -12,7 +12,7 @@ cpanfile.snapshot: cpanfile
 
 lib/Hoge/Fuga/Message.pm: proto/message.proto
 	docker run --rm -v `pwd`:/$(REPOS) -w /$(REPOS) $(REGISTORY) \
-		carton exec -- protoc --perl-gpd_out=package=Hoge.Fuga.Message:lib $^
+		carton exec -- protoc --perl-gpd_out=package=Hoge.Fuga.Message,implicit_maps:lib $^
 
 lib:
 	mkdir -p $@
